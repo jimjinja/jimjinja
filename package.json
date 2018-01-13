@@ -1,0 +1,26 @@
+{
+  "name": "jimjinja",
+  "version": "0.0.1",
+  "description": "IoT",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . --out=dist --asar --overwrite --all",
+    "build:darwin": "electron-packager . --out=dist --asar --overwrite --platform=darwin --arch=x64",
+    "compress": "cd dist; for file in `ls`; do zip -r -y $file.zip $file; done"
+  },
+  "repository": "https://github.com/jimjinja/jimjinja",
+  "keywords": [
+    "electron",
+    "iot",
+    "jimjinja"
+  ],
+  "author": "Jingun Jung",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "electron-packager": "^10.1.1"
+  },
+  "dependencies": {
+    "electron": "^1.7.10"
+  }
+}
