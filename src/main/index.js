@@ -14,9 +14,9 @@ function createWindow() {
     height: 600,
   });
 
-  // and load the index.html of the app.
+  // and load the main.html of the app.
   const winURL = url.format({
-    pathname: path.join(__dirname, 'index.html'),
+    pathname: path.join(__dirname, 'main.html'),
     protocol: 'file:',
     slashes: true,
   });
