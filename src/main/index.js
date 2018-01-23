@@ -1,35 +1,32 @@
-// import { app, BrowserWindow } from 'electron'  // eslint-disable-line
-const { app, BrowserWindow } = require('electron');
-const path = require('path');
-const url = require('url');
+import { app, BrowserWindow } from 'electron'  // eslint-disable-line
+
+/**
+ * Set `__static` path to static files in production
+ * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
+ */
+if (process.env.NODE_ENV !== 'development') {
+  global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\');  // eslint-disable-line
+}
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+const winURL = process.env.NODE_ENV === 'development'
+  ? 'http://localhost:9080'
+  : `file://${__dirname}/index.html`;
 
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    height: 563,
+    useContentSize: true,
+    width: 1000,
   });
 
-  // and load the main.html of the app.
-  const winURL = url.format({
-    pathname: path.join(__dirname, 'main.html'),
-    protocol: 'file:',
-    slashes: true,
-  });
   mainWindow.loadURL(winURL);
-
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
     mainWindow = null;
   });
 }
@@ -55,18 +52,3 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
-exports.openWindow = () => {
-  const childWindow = new BrowserWindow({
-    width: 400,
-    height: 200,
-  });
-  const childURL = url.format({
-    pathname: path.join(__dirname, 'bear.html'),
-    protocol: 'file:',
-    slashes: true,
-  });
-  childWindow.loadURL(childURL);
-};
