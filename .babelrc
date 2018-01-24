@@ -24,6 +24,13 @@
         }],
         "stage-0"
       ]
+    },
+    "test": {
+      "presets": [
+        "env",
+        "stage-0"
+      ],
+      "plugins": ["transform-vue-jsx", "transform-es2015-modules-commonjs", "dynamic-import-node"]
     }
   },
   "plugins": ["transform-runtime"]

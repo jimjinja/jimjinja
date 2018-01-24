@@ -3,6 +3,7 @@
     <img id="logo" src="~@/assets/logo.png" alt="electron-vue">
     <main>
       <div class="left-side">
+        <h1>Welcome to Your Vue.js App</h1>
         <span class="title">
           Welcome to your new project!
         </span>
