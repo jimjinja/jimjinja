@@ -75,6 +75,7 @@
                 <button @click="open('https://simulatedgreg.gitbooks.io/electron-vue/content/')">Read the Docs</button><br><br>
                 <button class="alt" @click="open('https://electron.atom.io/docs/')">Electron</button>
                 <button class="alt" @click="open('https://vuejs.org/v2/guide/')">Vue.js</button>
+                <button class="alt" @click="getPost('https://jsonplaceholder.typicode.com/posts/1')">Rest</button>
               </div>
             </div>
           </main>
@@ -92,7 +93,18 @@
     components: { SystemInformation },
     methods: {
       open(link) {
-        require('electron').shell.openExternal(link);
+        this.$electron.shell.openExternal(link);
+      },
+      getPost(link) {
+        this.$http.get(link, {
+          params: {
+            id: '1',
+          },
+        }).then((response) => {
+          console.log(response);
+        }).catch((response) => {
+          console.log(response);
+        });
       },
     },
   };

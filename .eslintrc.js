@@ -39,6 +39,8 @@ module.exports = {
     // disallow use of chained assignment expressions
     'no-multi-assign': 'off',
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // disallow the use of console
+    "no-console": 'off'
   }
 };

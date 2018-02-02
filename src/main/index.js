@@ -16,6 +16,8 @@ const winURL = process.env.NODE_ENV === 'development'
   : `file://${__dirname}/index.html`;
 
 function createWindow() {
+  app.setName('JimJinJa');
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
     height: 563,
