@@ -1,6 +1,6 @@
 {
   "name": "jimjinja",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "IoT",
   "main": "./dist/electron/main.js",
   "scripts": {
@@ -12,7 +12,6 @@
     "build:clean": "cross-env BUILD_TARGET=clean node .electron-vue/build.js",
     "build:web": "cross-env BUILD_TARGET=web node .electron-vue/build.js",
     "dev": "node .electron-vue/dev-runner.js",
-    "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage --no-cache",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
@@ -86,6 +85,7 @@
   },
   "dependencies": {
     "element-ui": "^2.0.11",
-    "vue": "^2.5.13"
+    "vue": "^2.5.13",
+    "vue-router": "^3.0.1"
   }
 }
