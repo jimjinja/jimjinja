@@ -57,6 +57,7 @@
             <el-dropdown-item><router-link to="/">setup1</router-link></el-dropdown-item>
             <el-dropdown-item><router-link to="/about">setup2</router-link></el-dropdown-item>
             <el-dropdown-item><router-link to="/preferences">setup3</router-link></el-dropdown-item>
+            <el-dropdown-item><router-link to="/counter">setup4</router-link></el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </el-header>      

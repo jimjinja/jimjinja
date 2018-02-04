@@ -21,6 +21,11 @@ export default new Router({
       component: require('@/components/Preferences').default,
     },
     {
+      path: '/counter',
+      name: 'counter',
+      component: require('@/components/Counter').default,
+    },
+    {
       path: '*',
       redirect: '/',
     },
